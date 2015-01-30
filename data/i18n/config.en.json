@@ -1,0 +1,15 @@
+{
+  "config": {
+    "help": {
+      "synopsis": "Manage the fedtools configuration file.",
+
+      "examples": "fedtools config list\nfedtools config set browser\nfedtools config delete version",
+      "options": {
+        "0": {
+          "option": "-d",
+          "desc": "Use this flag to display extra information, helpful for debugging."
+        }
+      }
+    }
+  }
+}

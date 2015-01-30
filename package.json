@@ -1,0 +1,47 @@
+{
+  "name": "fedtools-config",
+  "version": "0.0.1",
+  "description": "Fedtools helper to manager Fedtools configuration file(s)",
+  "author": "Arno Versini",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "data"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aversini/fedtools-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aversini/fedtools/issues"
+  },
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha"
+  },
+  "dependencies": {
+    "ini": "^1.3.2"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "fedtools-utilities": "*",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-release": "*",
+    "grunt-curl": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-mkdir": "*",
+    "grunt-shell": "*",
+    "istanbul": "*",
+    "load-grunt-tasks": "*",
+    "mocha": "*"
+  },
+  "keywords": [
+    "wria",
+    "wria2",
+    "fed",
+    "tools",
+    "config",
+    "configuration"
+  ]
+}
