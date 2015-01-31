@@ -176,7 +176,9 @@ Config.prototype.init = function (pkgConfig) {
 
   if (pkgConfig) {
     this._pkgConfig = pkgConfig;
-    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+    if (fs.existsSync(this._fedtoolsEnvRcFile)) {
+      json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+    }
     keys = _.omit(pkgConfig, _.union(this._blacklist, _.keys(json)));
     this.setKey(keys);
   }
@@ -250,7 +252,10 @@ Config.prototype.setKey = function (key, value, privateKey) {
     update = false,
     json = {};
 
-  json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+  if (fs.existsSync(this._fedtoolsEnvRcFile)) {
+    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')
+      );
+  }
 
   if (!_.isString(key)) {
     // multiple keys to update at once!
