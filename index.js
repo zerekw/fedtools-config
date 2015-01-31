@@ -38,7 +38,7 @@ Config = function () {
       mochaC: 'mochaC',
       jenkinshostname: 'jenkinshostname',
       jenkinsusername: 'jenkinsusername',
-      defaultBranch: 'defaultBranch',
+      defaultbranch: 'defaultbranch',
       wria2giturl: 'wria2giturl',
       wria2yui3giturl: 'wria2yui3giturl'
     },
@@ -143,7 +143,7 @@ Config.prototype._setKey = function (json, key, value, privateKey) {
   var update = false;
   if ((_.indexOf(this._blacklist, key) < 0) ||
     (_.indexOf(this._blacklist, key) >= 0 && privateKey === true)) {
-    json[key] = value;
+    json[key.toLowerCase()] = value;
     update = true;
   }
   return {
@@ -185,8 +185,9 @@ Config.prototype.init = function (pkgConfig) {
  * package.json file.
  *
  * @method reset
+ * @param {Boolean} silent  If true, even will not be sent.
  */
-Config.prototype.reset = function () {
+Config.prototype.reset = function (silent) {
   var
     json = {},
     keys;
@@ -195,7 +196,9 @@ Config.prototype.reset = function () {
     json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
     keys = _.omit(this._pkgConfig, this._blacklist);
     this.setKey(keys);
-    this.emit('config:reset');
+    if (!silent) {
+      this.emit('config:reset');
+    }
   }
 };
 
@@ -233,12 +236,13 @@ Config.prototype.list = function () {
  * @param {Boolean} [privateKey]  Needs to be true if the key is
  *                                blacklisted in order to actually
  *                                save it.
+ * @param {Boolean} silent        If true, even will not be sent.
  *
  * Alternatively, key can be an object so that multiple keys can
  * be saved in one pass. Multiple keys saving doesn't work for
  * blacklisted keys (they need to be save individually).
  */
-Config.prototype.setKey = function (key, value, privateKey) {
+Config.prototype.setKey = function (key, value, privateKey, silent) {
   log.debug('==> set: [%s] [%s] [%s]', key, value, privateKey);
   var
     res,
@@ -266,7 +270,9 @@ Config.prototype.setKey = function (key, value, privateKey) {
 
   if (update) {
     fs.writeFileSync(this._fedtoolsEnvRcFile, JSON.stringify(json, null, 2));
-    this.emit('config:set', key, value);
+    if (!silent) {
+      this.emit('config:set', key, value);
+    }
   }
 };
 
@@ -294,8 +300,9 @@ Config.prototype.getKey = function (key) {
  * @param  {Boolean} [privateKey] Needs to be true if the key is
  *                                blacklisted in order to actually
  *                                save it.
+ * @param {Boolean} silent        If true, even will not be sent.
  */
-Config.prototype.deleteKey = function (key, privateKey) {
+Config.prototype.deleteKey = function (key, privateKey, silent) {
   log.debug('==> set: [%s] [%s] [%s]', key, privateKey);
   var json = {};
   if (_.has(this.FEDTOOLSRCKEYS, key)) {
@@ -303,7 +310,9 @@ Config.prototype.deleteKey = function (key, privateKey) {
       (_.indexOf(this._blacklist, key) >= 0 && privateKey === true)) {
       json = _.omit(JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')), key);
       fs.writeFileSync(this._fedtoolsEnvRcFile, JSON.stringify(json, null, 2));
-      this.emit('config:delete', key);
+      if (!silent) {
+        this.emit('config:delete', key);
+      }
     }
   }
 };
