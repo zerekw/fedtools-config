@@ -1,4 +1,8 @@
 
+__0.0.10 / 2015-01-31__
+
+- Fix case where .fedtoolsrc doesn't exist yet ([700acbc](https://github.com/aversini/fedtools-config/commit/700acbcaf31ac012220f6365115d11358bf32d53))
+
 __0.0.9 / 2015-01-31__
 
 - updating to latest underscore ([8f83567](https://github.com/aversini/fedtools-config/commit/8f83567a0cd9b0698c3be575166ad701b361470b))
