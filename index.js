@@ -65,6 +65,9 @@ Config.prototype._initialize = function () {
 
   if (!this._fedtoolsEnvRcFile) {
     this._fedtoolsEnvRcFile = path.join(this._getHomeDir(), '.fedtoolsrc');
+    if (!fs.existsSync(this._fedtoolsEnvRcFile)) {
+      fs.writeFileSync(this._fedtoolsEnvRcFile, '{}');
+    }
   }
 
   this._blacklist = [
@@ -155,12 +158,26 @@ Config.prototype._setKey = function (json, key, value, privateKey) {
   };
 };
 
+Config.prototype._readConfigurationFile = function () {
+  var json = {};
+  try {
+    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+  } catch(e) {
+    log.echo();
+    log.fatal(i18n.t('messages.error.unableToRead'));
+    log.echo(i18n.t('messages.error.suggestion'));
+    log.echo();
+    process.exit(0);
+  }
+  return json;
+};
+
 // -- P U B L I C  M E T H O D S
 
 /**
  * Method to be called by each module that need to add
  * anything from package.json config object to the
- * user configuration file (~/.fedtoolrs).
+ * user configuration file (~/.fedtoolrc).
  * It will ignore anything that is in the _blacklist.
  *
  * @method init
@@ -176,9 +193,7 @@ Config.prototype.init = function (pkgConfig) {
 
   if (pkgConfig) {
     this._pkgConfig = pkgConfig;
-    if (fs.existsSync(this._fedtoolsEnvRcFile)) {
-      json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
-    }
+    json = this._readConfigurationFile();
     keys = _.omit(pkgConfig, _.union(this._blacklist, _.keys(json)));
     this.setKey(keys);
   }
@@ -197,7 +212,7 @@ Config.prototype.reset = function () {
     keys;
 
   if (this._pkgConfig) {
-    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+    json = this._readConfigurationFile();
     keys = _.omit(this._pkgConfig, this._blacklist);
     this.setKey(keys);
     if (this.verbose) {
@@ -216,7 +231,7 @@ Config.prototype.list = function () {
     keys,
     len,
     maxLen,
-    json = _.omit(JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')), this._blacklist);
+    json = _.omit(this._readConfigurationFile(), this._blacklist);
 
   keys = _.keys(json).sort();
   maxLen = _.max(keys, function (key) {
@@ -252,10 +267,7 @@ Config.prototype.setKey = function (key, value, privateKey) {
     update = false,
     json = {};
 
-  if (fs.existsSync(this._fedtoolsEnvRcFile)) {
-    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')
-      );
-  }
+  json = this._readConfigurationFile();
 
   if (!_.isString(key)) {
     // multiple keys to update at once!
@@ -293,7 +305,7 @@ Config.prototype.setKey = function (key, value, privateKey) {
 Config.prototype.getKey = function (key) {
   var json = {};
   if (_.has(this.FEDTOOLSRCKEYS, key)) {
-    json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
+    json = this._readConfigurationFile();
     return json[key];
   }
 };
@@ -313,7 +325,7 @@ Config.prototype.deleteKey = function (key, privateKey) {
   if (_.has(this.FEDTOOLSRCKEYS, key)) {
     if ((_.indexOf(this._blacklist, key) < 0) ||
       (_.indexOf(this._blacklist, key) >= 0 && privateKey === true)) {
-      json = _.omit(JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')), key);
+      json = _.omit(this._readConfigurationFile(), key);
       fs.writeFileSync(this._fedtoolsEnvRcFile, JSON.stringify(json, null, 2));
       if (this.verbose) {
         this.emit('config:delete', key);

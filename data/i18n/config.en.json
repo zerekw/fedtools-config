@@ -6,7 +6,11 @@
   "messages": {
     "set": "Key '%{key}' updated to '%{value}' in configuration file.",
     "delete": "Key '%{key}' deleted from configuration file.",
-    "reset": "Fedtools configuration was reset to default values."
+    "reset": "Fedtools configuration was reset to default values.",
+    "error": {
+      "unableToRead": "Unable to read the configuration file...",
+      "suggestion": "You may want to check if it is a valid JSON format?"
+    }
   },
   "config": {
     "help": {
