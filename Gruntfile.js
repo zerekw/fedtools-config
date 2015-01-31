@@ -97,6 +97,7 @@ module.exports = function (grunt) {
   grunt.registerTask('history', 'Updating ' + historyFile, function () {
     var done = this.async();
     require('fedtools-utilities').git.getChangeLog({
+      commitTemplate: '- %s ([%h](https://github.com/aversini/fedtools-config/commit/%H))',
       ignore: ['Publishing npm release', 'Updating HISTORY']
     }, function (err, log) {
       if (!err) {
