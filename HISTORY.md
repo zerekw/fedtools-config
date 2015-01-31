@@ -1,4 +1,8 @@
 
+__0.0.7 / 2015-01-31__
+
+- Change verbose algorithm again ([4f7d261](https://github.com/aversini/fedtools-config/commit/4f7d261263768ad6f96925d1bb7f4e74b09ab774))
+
 __0.0.6 / 2015-01-31__
 
 - Moving silent/verbose flag to property ([efcae7b](https://github.com/aversini/fedtools-config/commit/efcae7b2d75dd5da5de3dfcffbb3d28ecabf1130))
