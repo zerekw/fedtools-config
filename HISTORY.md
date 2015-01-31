@@ -1,4 +1,8 @@
 
+__0.0.9 / 2015-01-31__
+
+- updating to latest underscore ([8f83567](https://github.com/aversini/fedtools-config/commit/8f83567a0cd9b0698c3be575166ad701b361470b))
+
 __0.0.8 / 2015-01-31__
 
 - Adding wria2gitfolder as a valid rc key ([3b779c2](https://github.com/aversini/fedtools-config/commit/3b779c2fce894419fe9f9dccce2bf6bdc24297b7))
