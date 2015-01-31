@@ -1,4 +1,8 @@
 
+__0.0.12 / 2015-01-31__
+
+- Trap if configuration file does not exist or is corrupted ([1745a17](https://github.com/aversini/fedtools-config/commit/1745a1710fb6bca9d29cc6421896eeaa2dce5a42))
+
 __0.0.11 / 2015-01-31__
 
 - Updating help ([045617e](https://github.com/aversini/fedtools-config/commit/045617e78727070adc8ee375d02a129a21a6fa5b))
