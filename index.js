@@ -40,7 +40,8 @@ Config = function () {
       jenkinsusername: 'jenkinsusername',
       defaultbranch: 'defaultbranch',
       wria2giturl: 'wria2giturl',
-      wria2yui3giturl: 'wria2yui3giturl'
+      wria2yui3giturl: 'wria2yui3giturl',
+      wria2gitfolder: 'wria2gitfolder'
     },
     writable: false
   });
@@ -68,7 +69,6 @@ Config.prototype._initialize = function () {
 
   this._blacklist = [
     'defaultGitlabId',
-    'wria2gitname',
     this.FEDTOOLSRCKEYS.warbuilder,
     this.FEDTOOLSRCKEYS.version
   ];
