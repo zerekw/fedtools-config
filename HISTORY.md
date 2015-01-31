@@ -1,4 +1,9 @@
 
+__0.0.5 / 2015-01-31__
+
+- Fixing unit tests ([71bb1cf](https://github.com/aversini/fedtools-config/commit/71bb1cff744c64a9d7734d8ce8ff2b96b281f043))
+- Adding silent flag to API ([3f6e747](https://github.com/aversini/fedtools-config/commit/3f6e747fd24dd12d4105fab71a5111c11e8804c6))
+
 __0.0.4 / 2015-01-30__
 
 - updating HISTORY template ([7208fa7](https://github.com/aversini/fedtools-config/commit/7208fa76b15b12155064d3d63c3bbfc05c4e7f97))
