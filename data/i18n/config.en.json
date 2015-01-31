@@ -12,7 +12,7 @@
     "help": {
       "synopsis": "Manage the fedtools configuration file.",
 
-      "examples": "fedtools config list\nfedtools config set browser\nfedtools config delete version",
+      "examples": "fedtools config list\nfedtools config set browser \"Google Chrome\"\nfedtools config delete browser",
       "options": {
         "0": {
           "option": "-d",
