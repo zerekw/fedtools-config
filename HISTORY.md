@@ -1,4 +1,8 @@
 
+__0.0.8 / 2015-01-31__
+
+- Adding wria2gitfolder as a valid rc key ([3b779c2](https://github.com/aversini/fedtools-config/commit/3b779c2fce894419fe9f9dccce2bf6bdc24297b7))
+
 __0.0.7 / 2015-01-31__
 
 - Change verbose algorithm again ([4f7d261](https://github.com/aversini/fedtools-config/commit/4f7d261263768ad6f96925d1bb7f4e74b09ab774))
