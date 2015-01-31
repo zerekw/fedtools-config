@@ -1,4 +1,13 @@
 {
+  "usage": {
+    "intro": "Usage:",
+    "description": " fedtools config set <key> <value>\n fedtools config delete <key>\n fedtools config list"
+  },
+  "messages": {
+    "set": "Key '%{key}' updated to '%{value}' in configuration file.",
+    "delete": "Key '%{key}' deleted from configuration file.",
+    "reset": "Fedtools configuration was reset to default values."
+  },
   "config": {
     "help": {
       "synopsis": "Manage the fedtools configuration file.",
