@@ -1,4 +1,8 @@
 
+__0.0.6 / 2015-01-31__
+
+- Moving silent/verbose flag to property ([efcae7b](https://github.com/aversini/fedtools-config/commit/efcae7b2d75dd5da5de3dfcffbb3d28ecabf1130))
+
 __0.0.5 / 2015-01-31__
 
 - Fixing unit tests ([71bb1cf](https://github.com/aversini/fedtools-config/commit/71bb1cff744c64a9d7734d8ce8ff2b96b281f043))
