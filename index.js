@@ -60,7 +60,7 @@ Config.prototype._getHomeDir = function () {
 Config.prototype._initialize = function () {
   i18n.loadPhrases(path.resolve(__dirname, 'data', 'i18n', 'config'));
 
-  this.verbose = true;
+  this.verbose = false;
 
   if (!this._fedtoolsEnvRcFile) {
     this._fedtoolsEnvRcFile = path.join(this._getHomeDir(), '.fedtoolsrc');
@@ -320,10 +320,7 @@ Config.prototype.deleteKey = function (key, privateKey) {
 /**
  * Entry point for the CLI for 'fedtools config'
  */
-Config.prototype.run = function (silent) {
-  if (silent === true) {
-    this.verbose = false;
-  }
+Config.prototype.run = function (verbose) {
   this._parseArguments(Array.prototype.slice.call(arguments));
 };
 
