@@ -1,8 +1,8 @@
-var notifier = require('../index'),
+var config = require('../index'),
   chai = require('chai');
 
 chai.should();
 
-global.notifier = notifier;
+global.config = config;
 
 global.expect = chai.expect;
