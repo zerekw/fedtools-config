@@ -1,7 +1,7 @@
 {
   "usage": {
     "intro": "Usage:",
-    "description": " fedtools config set <key> <value>\n fedtools config delete <key>\n fedtools config list"
+    "description": " fedtools config set <key> <value>\n fedtools config delete <key>\n fedtools config list\n fedtools config reset"
   },
   "messages": {
     "set": "Key '%{key}' updated to '%{value}' in configuration file.",
