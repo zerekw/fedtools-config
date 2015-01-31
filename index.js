@@ -60,6 +60,8 @@ Config.prototype._getHomeDir = function () {
 Config.prototype._initialize = function () {
   i18n.loadPhrases(path.resolve(__dirname, 'data', 'i18n', 'config'));
 
+  this.verbose = true;
+
   if (!this._fedtoolsEnvRcFile) {
     this._fedtoolsEnvRcFile = path.join(this._getHomeDir(), '.fedtoolsrc');
   }
@@ -132,7 +134,8 @@ Config.prototype._parseArguments = function (args) {
     // args[0]._[1] === 'undefined or l|ls|list|set|rm|remove|del|delete'
     // args[0]._[2] === undefined or key_name
     if (_.has(commands, args[0]._[1])) {
-      _.bind(commands[args[0]._[1]], this, args[0]._[2], args[0]._[3])();
+      _.bind(commands[args[0]._[1]], this,
+        args[0]._[2], args[0]._[3], true)();
     } else {
       this._printUsage();
     }
@@ -185,9 +188,8 @@ Config.prototype.init = function (pkgConfig) {
  * package.json file.
  *
  * @method reset
- * @param {Boolean} silent  If true, even will not be sent.
  */
-Config.prototype.reset = function (silent) {
+Config.prototype.reset = function () {
   var
     json = {},
     keys;
@@ -196,7 +198,7 @@ Config.prototype.reset = function (silent) {
     json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
     keys = _.omit(this._pkgConfig, this._blacklist);
     this.setKey(keys);
-    if (!silent) {
+    if (this.verbose) {
       this.emit('config:reset');
     }
   }
@@ -236,13 +238,12 @@ Config.prototype.list = function () {
  * @param {Boolean} [privateKey]  Needs to be true if the key is
  *                                blacklisted in order to actually
  *                                save it.
- * @param {Boolean} silent        If true, even will not be sent.
  *
  * Alternatively, key can be an object so that multiple keys can
  * be saved in one pass. Multiple keys saving doesn't work for
  * blacklisted keys (they need to be save individually).
  */
-Config.prototype.setKey = function (key, value, privateKey, silent) {
+Config.prototype.setKey = function (key, value, privateKey) {
   log.debug('==> set: [%s] [%s] [%s]', key, value, privateKey);
   var
     res,
@@ -270,7 +271,7 @@ Config.prototype.setKey = function (key, value, privateKey, silent) {
 
   if (update) {
     fs.writeFileSync(this._fedtoolsEnvRcFile, JSON.stringify(json, null, 2));
-    if (!silent) {
+    if (this.verbose) {
       this.emit('config:set', key, value);
     }
   }
@@ -300,9 +301,8 @@ Config.prototype.getKey = function (key) {
  * @param  {Boolean} [privateKey] Needs to be true if the key is
  *                                blacklisted in order to actually
  *                                save it.
- * @param {Boolean} silent        If true, even will not be sent.
  */
-Config.prototype.deleteKey = function (key, privateKey, silent) {
+Config.prototype.deleteKey = function (key, privateKey) {
   log.debug('==> set: [%s] [%s] [%s]', key, privateKey);
   var json = {};
   if (_.has(this.FEDTOOLSRCKEYS, key)) {
@@ -310,7 +310,7 @@ Config.prototype.deleteKey = function (key, privateKey, silent) {
       (_.indexOf(this._blacklist, key) >= 0 && privateKey === true)) {
       json = _.omit(JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8')), key);
       fs.writeFileSync(this._fedtoolsEnvRcFile, JSON.stringify(json, null, 2));
-      if (!silent) {
+      if (this.verbose) {
         this.emit('config:delete', key);
       }
     }
@@ -320,7 +320,10 @@ Config.prototype.deleteKey = function (key, privateKey, silent) {
 /**
  * Entry point for the CLI for 'fedtools config'
  */
-Config.prototype.run = function () {
+Config.prototype.run = function (silent) {
+  if (silent === true) {
+    this.verbose = false;
+  }
   this._parseArguments(Array.prototype.slice.call(arguments));
 };
 

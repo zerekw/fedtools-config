@@ -3,14 +3,16 @@
 
 describe('config#fedtoolsRc', function () {
 
+  config.verbose = false;
+
   it('should set/get a key/value pair to/from a .fedtoolsrc file', function () {
     var res;
 
-    config.setKey(config.FEDTOOLSRCKEYS.mocha1, '123', null, true);
+    config.setKey(config.FEDTOOLSRCKEYS.mocha1, '123');
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha1);
     expect(res).to.equal('123');
 
-    config.setKey(config.FEDTOOLSRCKEYS.mocha1, '456', null, true);
+    config.setKey(config.FEDTOOLSRCKEYS.mocha1, '456');
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha1);
     expect(res).to.equal('456');
 
@@ -21,15 +23,15 @@ describe('config#fedtoolsRc', function () {
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha2);
     expect(res).to.equal('666');
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha1, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha1);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha1);
     expect(res).to.be.undefined;
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha2, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha2);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha2);
     expect(res).to.be.undefined;
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha3, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha3);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha3);
     expect(res).to.be.undefined;
   });
@@ -50,15 +52,15 @@ describe('config#fedtoolsRc', function () {
   it('should delete a key/value pair from a .fedtoolsrc file', function () {
     var res;
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha1, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha1);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha1);
     expect(res).to.be.undefined;
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha2, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha2);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha2);
     expect(res).to.be.undefined;
 
-    config.deleteKey(config.FEDTOOLSRCKEYS.mocha3, null, true);
+    config.deleteKey(config.FEDTOOLSRCKEYS.mocha3);
     res = config.getKey(config.FEDTOOLSRCKEYS.mocha3);
     expect(res).to.be.undefined;
   });
