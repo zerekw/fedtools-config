@@ -11,12 +11,21 @@
   "config": {
     "help": {
       "synopsis": "Manage the fedtools configuration file.",
-
-      "examples": "fedtools config list\nfedtools config set browser \"Google Chrome\"\nfedtools config delete browser",
+      "description": "Fedtools comes with a default set of configurations that can be updated via this utility. For example, you can update the default folder that is going to be used to clone WF-RIA.\nThe following keys are accepted:\nbrowser, defaultbranch, localrepo, jenkinshostname, jenkinsusername, userbranch, useremail, username, wria2gitfolder, wria2giturl, wria2yui3giturl,  yuibranch",
+      "examples": "fedtools config list\nfedtools config set browser \"Google Chrome\"\nfedtools config set browser \"Safari\"\nfedtools config set browser \"Firefox\"\nfedtools config delete browser # revert back to default browser\nfedtools config reset",
       "options": {
-        "0": {
-          "option": "-d",
-          "desc": "Use this flag to display extra information, helpful for debugging."
+        "1": {
+          "option": "list",
+          "desc": "Use this command to print out the full configuration file."
+        },"2": {
+          "option": "set key value",
+          "desc": "Use this command to set a key to a value in the configuration file."
+        },"3": {
+          "option": "delete key",
+          "desc": "Use this command to delete the key from the configuration file."
+        },"4": {
+          "option": "reset",
+          "desc": "Use this command to reset the configuration file to the default values."
         }
       }
     }
