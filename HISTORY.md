@@ -1,4 +1,8 @@
 
+__0.0.11 / 2015-01-31__
+
+- Updating help ([045617e](https://github.com/aversini/fedtools-config/commit/045617e78727070adc8ee375d02a129a21a6fa5b))
+
 __0.0.10 / 2015-01-31__
 
 - Fix case where .fedtoolsrc doesn't exist yet ([700acbc](https://github.com/aversini/fedtools-config/commit/700acbcaf31ac012220f6365115d11358bf32d53))
