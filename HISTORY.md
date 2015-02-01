@@ -1,4 +1,8 @@
 
+__0.0.14 / 2015-02-01__
+
+- Emmergency update for dependencies (^ vs ~) ([9086927](https://github.com/aversini/fedtools-config/commit/9086927a364ff8cd1bea903c8cd1b837988e1f7d))
+
 __0.0.13 / 2015-01-31__
 
 - Adding cloneorlocal key ([e756b67](https://github.com/aversini/fedtools-config/commit/e756b6720961c3cbfb04c4e92908e3369f860578))
