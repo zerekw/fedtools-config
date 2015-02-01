@@ -25,6 +25,7 @@ Config = function () {
   // Define public properties
   Object.defineProperty(this, 'FEDTOOLSRCKEYS', {
     value: {
+      cloneorlocal: 'cloneorlocal',
       username: 'username',
       useremail: 'useremail',
       userbranch: 'userbranch',
