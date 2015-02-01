@@ -1,4 +1,8 @@
 
+__0.0.13 / 2015-01-31__
+
+- Adding cloneorlocal key ([e756b67](https://github.com/aversini/fedtools-config/commit/e756b6720961c3cbfb04c4e92908e3369f860578))
+
 __0.0.12 / 2015-01-31__
 
 - Trap if configuration file does not exist or is corrupted ([1745a17](https://github.com/aversini/fedtools-config/commit/1745a1710fb6bca9d29cc6421896eeaa2dce5a42))
