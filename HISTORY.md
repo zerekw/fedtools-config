@@ -1,4 +1,8 @@
 
+__0.0.18 / 2015-02-04__
+
+- Reverting again... still broken ([3070fe6](https://github.com/aversini/fedtools-config/commit/3070fe6c798f975f12f0eec65d6c1a647e0e8339))
+
 __0.0.17 / 2015-02-04__
 
 - I think it's time I stop now... ([c694c53](https://github.com/aversini/fedtools-config/commit/c694c53570ae24ec0b7325fc35698cf165352393))
