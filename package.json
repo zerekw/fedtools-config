@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "chai": "*",
-    "fedtools-utilities": "*",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.11",
     "grunt-release": "*",
