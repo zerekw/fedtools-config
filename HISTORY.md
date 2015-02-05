@@ -1,4 +1,12 @@
 
+__0.0.19 / 2015-02-05__
+
+- Removing fedtools-utilities dependency (moving to dev) ([f49b314](https://github.com/aversini/fedtools-config/commit/f49b314b71fd04f941fa10ed1444b1ff77b1c64b))
+
+__0.0.19-0 / 2015-02-05__
+
+- Testing with beta ([bda2a28](https://github.com/aversini/fedtools-config/commit/bda2a28e01d5ecb480727545b05503e81087cca9))
+
 __0.0.18 / 2015-02-04__
 
 - Reverting again... still broken ([3070fe6](https://github.com/aversini/fedtools-config/commit/3070fe6c798f975f12f0eec65d6c1a647e0e8339))
