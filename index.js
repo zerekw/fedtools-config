@@ -9,7 +9,6 @@ var
 
   i18n = require('fedtools-i18n'),
   log = require('fedtools-logs'),
-  utilities = require('fedtools-utilities'),
   Config;
 
 // -- C O N S T R U C T O R
@@ -119,12 +118,6 @@ Config.prototype._printUsage = function () {
   log.echo(i18n.t('usage.intro'));
   log.echo(i18n.t('usage.description'));
   log.echo();
-
-if (process.env.FEDTOOLS_PASSWORD) {
-    console.log('==> testing only');
-    console.log('==> utilities: ', utilities);
-    utilities.printMessagesInBox(['this is a test...']);
-  }
 };
 
 Config.prototype._parseArguments = function (args) {
