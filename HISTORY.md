@@ -1,4 +1,8 @@
 
+__0.0.16 / 2015-02-04__
+
+- Reverting dependency on fedtools-utilites... not sure what's wrong here :/ ([139f930](https://github.com/aversini/fedtools-config/commit/139f9309611069776dfdd97c47ca07567ec21aa0))
+
 __0.0.15 / 2015-02-04__
 
 - Pretty print config ([263a430](https://github.com/aversini/fedtools-config/commit/263a430df508a9f845053259b2b304598a7a8a5f))
