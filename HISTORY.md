@@ -1,4 +1,9 @@
 
+__0.0.17 / 2015-02-04__
+
+- I think it's time I stop now... ([c694c53](https://github.com/aversini/fedtools-config/commit/c694c53570ae24ec0b7325fc35698cf165352393))
+- testing ([6818965](https://github.com/aversini/fedtools-config/commit/681896586dceedd335feaef4274f154cba950ef6))
+
 __0.0.16 / 2015-02-04__
 
 - Reverting dependency on fedtools-utilites... not sure what's wrong here :/ ([139f930](https://github.com/aversini/fedtools-config/commit/139f9309611069776dfdd97c47ca07567ec21aa0))
