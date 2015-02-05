@@ -9,6 +9,7 @@ var
 
   i18n = require('fedtools-i18n'),
   log = require('fedtools-logs'),
+  utilities = require('fedtools-utilities'),
   Config;
 
 // -- C O N S T R U C T O R
@@ -114,10 +115,10 @@ Config.prototype._resetChange = function () {
 };
 
 Config.prototype._printUsage = function () {
-  log.echo();
-  log.echo(i18n.t('usage.intro'));
-  log.echo(i18n.t('usage.description'));
-  log.echo();
+  var msgs = [];
+  msgs.push(log.strToColor('cyan', i18n.t('usage.intro')));
+  msgs.push(i18n.t('usage.description'));
+  utilities.printMessagesInBox(msgs);
 };
 
 Config.prototype._parseArguments = function (args) {
@@ -163,7 +164,7 @@ Config.prototype._readConfigurationFile = function () {
   var json = {};
   try {
     json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
-  } catch(e) {
+  } catch (e) {
     log.echo();
     log.fatal(i18n.t('messages.error.unableToRead'));
     log.echo(i18n.t('messages.error.suggestion'));
@@ -232,6 +233,7 @@ Config.prototype.list = function () {
     keys,
     len,
     maxLen,
+    msgs = [],
     json = _.omit(this._readConfigurationFile(), this._blacklist);
 
   keys = _.keys(json).sort();
@@ -239,12 +241,14 @@ Config.prototype.list = function () {
     return key.length;
   }).length + 3;
 
-  log.echo();
+  msgs.push(log.strToColor('cyan', i18n.t('messages.current')));
+  msgs.push('');
   _.each(keys, function (key) {
     len = key.length;
-    log.echo(' ' + key + ' ' + new Array(maxLen - len).join('.') + ' ' + json[key]);
+    msgs.push(' ' + key + ' ' + new Array(maxLen - len).join('.') + ' ' + json[key]);
   });
-  log.echo();
+  msgs.push('');
+  utilities.printMessagesInBox(msgs);
 };
 
 /**

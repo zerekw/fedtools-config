@@ -4,6 +4,7 @@
     "description": " fedtools config set <key> <value>\n fedtools config delete <key>\n fedtools config list\n fedtools config reset"
   },
   "messages": {
+    "current": "Current Fedtools Configuration",
     "set": "Key '%{key}' updated to '%{value}' in configuration file.",
     "delete": "Key '%{key}' deleted from configuration file.",
     "reset": "Fedtools configuration was reset to default values.",
