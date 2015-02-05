@@ -1,4 +1,8 @@
 
+__0.0.15 / 2015-02-04__
+
+- Pretty print config ([263a430](https://github.com/aversini/fedtools-config/commit/263a430df508a9f845053259b2b304598a7a8a5f))
+
 __0.0.14 / 2015-02-01__
 
 - Emmergency update for dependencies (^ vs ~) ([9086927](https://github.com/aversini/fedtools-config/commit/9086927a364ff8cd1bea903c8cd1b837988e1f7d))
