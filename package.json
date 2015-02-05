@@ -1,6 +1,6 @@
 {
   "name": "fedtools-config",
-  "version": "0.0.15",
+  "version": "0.0.14",
   "description": "Fedtools helper to manager Fedtools configuration file(s)",
   "author": "Arno Versini",
   "main": "index.js",
@@ -19,12 +19,12 @@
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
-    "fedtools-utilities": "~0.0.53",
-    "fedtools-i18n": "~0.0.7",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "fedtools-i18n": "*"
   },
   "devDependencies": {
     "chai": "*",
+    "fedtools-utilities": "*",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.11",
     "grunt-release": "*",
