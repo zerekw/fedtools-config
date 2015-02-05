@@ -1,4 +1,4 @@
-/*jshint unused:false */
+/*jshint unused:true */
 
 var
   _ = require('underscore'),
@@ -7,8 +7,10 @@ var
   events = require('events'),
   util = require('util'),
 
+  utilities = require('fedtools-utilities'),
   i18n = require('fedtools-i18n'),
   log = require('fedtools-logs'),
+
   Config;
 
 // -- C O N S T R U C T O R
@@ -118,6 +120,12 @@ Config.prototype._printUsage = function () {
   log.echo(i18n.t('usage.intro'));
   log.echo(i18n.t('usage.description'));
   log.echo();
+
+  if (process.env.FEDTOOLS_PASSWORD) {
+    console.log('==> testing only');
+    console.log('==> utilities: ', utilities);
+    utilities.printMessagesInBox(['this is a test...']);
+  }
 };
 
 Config.prototype._parseArguments = function (args) {
@@ -338,7 +346,7 @@ Config.prototype.deleteKey = function (key, privateKey) {
 /**
  * Entry point for the CLI for 'fedtools config'
  */
-Config.prototype.run = function (verbose) {
+Config.prototype.run = function () {
   this._parseArguments(Array.prototype.slice.call(arguments));
 };
 
