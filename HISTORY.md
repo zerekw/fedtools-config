@@ -1,4 +1,8 @@
 
+__0.0.20 / 2015-02-06__
+
+- Adding keys to support JSP playground ([d4cb222](https://github.com/aversini/fedtools-config/commit/d4cb2229d7ece8fa6ab518bec4851f25784301b1))
+
 __0.0.19 / 2015-02-05__
 
 - Removing fedtools-utilities dependency (moving to dev) ([f49b314](https://github.com/aversini/fedtools-config/commit/f49b314b71fd04f941fa10ed1444b1ff77b1c64b))
