@@ -42,7 +42,9 @@ Config = function () {
       defaultbranch: 'defaultbranch',
       wria2giturl: 'wria2giturl',
       wria2yui3giturl: 'wria2yui3giturl',
-      wria2gitfolder: 'wria2gitfolder'
+      wria2gitfolder: 'wria2gitfolder',
+      jspartifactsfolder: 'jspartifactsfolder',
+      jsprepofolder: 'jsprepofolder'
     },
     writable: false
   });
