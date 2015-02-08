@@ -1,4 +1,10 @@
 
+__0.0.21 / 2015-02-08__
+
+- Adding missing dependency ([8b84e67](https://github.com/aversini/fedtools-config/commit/8b84e67bbc51d3513f27364b4e90f661122b842a))
+- Fix readme [skip ci] ([06e650a](https://github.com/aversini/fedtools-config/commit/06e650a686871fa41b28d0fb9154a5e3cabff46d))
+- Adding Travic CI and Coveralls ([3ba1e21](https://github.com/aversini/fedtools-config/commit/3ba1e21ae29de0e9af90ed61a8f14ff4e7ab3419))
+
 __0.0.20 / 2015-02-06__
 
 - Adding keys to support JSP playground ([d4cb222](https://github.com/aversini/fedtools-config/commit/d4cb2229d7ece8fa6ab518bec4851f25784301b1))
