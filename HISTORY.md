@@ -1,4 +1,8 @@
 
+__0.0.22 / 2015-02-08__
+
+- Skip CI build on npm release / history update ([c224efb](https://github.com/aversini/fedtools-config/commit/c224efb219b5f36587b03db15bf0be046fd91df3))
+
 __0.0.21 / 2015-02-08__
 
 - Adding missing dependency ([8b84e67](https://github.com/aversini/fedtools-config/commit/8b84e67bbc51d3513f27364b4e90f661122b842a))
