@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "fedtools-i18n": "~0.0.7",
+    "fedtools-logs": "~0.1.20",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
