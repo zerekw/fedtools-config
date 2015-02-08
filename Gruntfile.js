@@ -58,7 +58,7 @@ module.exports = function (grunt) {
         push: true,
         pushTags: true,
         npm: true,
-        commitMessage: PUBLISH_COMMIT_MSG + ' <%= version %>'
+        commitMessage: PUBLISH_COMMIT_MSG + ' <%= version %> [skip ci]'
       }
     }
 
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
           } else {
             grunt.util.spawn({
               cmd: 'git',
-              args: ['commit', '-m', 'Updating HISTORY']
+              args: ['commit', '-m', 'Updating HISTORY [skip ci]']
             }, function (err) {
               if (err) {
                 grunt.fail.fatal('Unable to run "git commit" ' + err);
