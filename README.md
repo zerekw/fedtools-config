@@ -6,7 +6,7 @@
 
 ```
 fedtools config list
-fedtools config set browser
+fedtools config set browser "Firefox"
 fedtools config delete useremail
 ...
 ```
