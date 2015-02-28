@@ -77,7 +77,10 @@ Config.prototype._initialize = function () {
   this._blacklist = [
     'defaultGitlabId',
     this.FEDTOOLSRCKEYS.warbuilder,
-    this.FEDTOOLSRCKEYS.version
+    this.FEDTOOLSRCKEYS.version,
+    this.FEDTOOLSRCKEYS.mocha1,
+    this.FEDTOOLSRCKEYS.mocha2,
+    this.FEDTOOLSRCKEYS.mocha3
   ];
 
   this._bindEvents();
@@ -166,7 +169,7 @@ Config.prototype._readConfigurationFile = function () {
   var json = {};
   try {
     json = JSON.parse(fs.readFileSync(this._fedtoolsEnvRcFile, 'utf8'));
-  } catch(e) {
+  } catch (e) {
     log.echo();
     log.fatal(i18n.t('messages.error.unableToRead'));
     log.echo(i18n.t('messages.error.suggestion'));
@@ -262,7 +265,7 @@ Config.prototype.list = function () {
  *
  * Alternatively, key can be an object so that multiple keys can
  * be saved in one pass. Multiple keys saving doesn't work for
- * blacklisted keys (they need to be save individually).
+ * blacklisted keys (they need to be saved individually).
  */
 Config.prototype.setKey = function (key, value, privateKey) {
   log.debug('==> set: [%s] [%s] [%s]', key, value, privateKey);
@@ -367,7 +370,9 @@ Config.prototype.getHelp = function (debug, options) {
       namespace: namespace,
       synopsis: options.i18n.t(namespace + '.synopsis'),
       command: options.i18n.t(namespace + '.command'),
-      description: options.i18n.t(namespace + '.description'),
+      description: options.i18n.t(namespace + '.description', {
+        keys: _.keys( _.omit(this.FEDTOOLSRCKEYS, this._blacklist) ).sort().join(', ')
+      }),
       options: _options,
       examples: options.i18n.t(namespace + '.examples'),
     };

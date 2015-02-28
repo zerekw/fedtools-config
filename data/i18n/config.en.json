@@ -16,7 +16,9 @@
   "config": {
     "help": {
       "synopsis": "Manage the fedtools configuration file.",
-      "description": "Fedtools comes with a default set of configurations that can be updated via this utility. For example, you can update the default folder that is going to be used to clone WF-RIA.\nThe following keys are accepted:\nbrowser, cloneorlocal, defaultbranch, localrepo, jenkinshostname, jenkinsusername, userbranch, useremail, username, wria2gitfolder, wria2giturl, wria2yui3giturl,  yuibranch",
+
+      "description": "Fedtools comes with a default set of configurations that can be updated via this utility. For example, you can update the default folder that is going to be used to clone WF-RIA.\nThe following keys are accepted:\n%{keys}",
+
       "examples": "fedtools config list\nfedtools config set browser \"Google Chrome\"\nfedtools config set browser \"Safari\"\nfedtools config set browser \"Firefox\"\nfedtools config delete browser # revert back to default browser\nfedtools config reset",
       "options": {
         "1": {
