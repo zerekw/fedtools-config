@@ -1,6 +1,6 @@
 {
   "name": "fedtools-config",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Fedtools helper to manager Fedtools configuration file(s)",
   "author": "Arno Versini",
   "main": "index.js",
