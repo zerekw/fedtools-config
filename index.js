@@ -44,7 +44,8 @@ Config = function () {
       wria2yui3giturl: 'wria2yui3giturl',
       wria2gitfolder: 'wria2gitfolder',
       jspartifactsfolder: 'jspartifactsfolder',
-      jsprepofolder: 'jsprepofolder'
+      jsprepofolder: 'jsprepofolder',
+      maxbuilds: 'maxbuilds'
     },
     writable: false
   });
