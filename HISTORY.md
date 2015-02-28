@@ -1,4 +1,9 @@
 
+__0.0.23 / 2015-02-28__
+
+- Automatically list available keys in help ([dffd24e](https://github.com/aversini/fedtools-config/commit/dffd24e5f48f240b9016af3a57d4110d4eceb27d))
+- Adding maxbuilds config key ([c8bcf72](https://github.com/aversini/fedtools-config/commit/c8bcf72ad92735201ab2692c0efb9419932d3c7c))
+
 __0.0.22 / 2015-02-08__
 
 - Skip CI build on npm release / history update ([c224efb](https://github.com/aversini/fedtools-config/commit/c224efb219b5f36587b03db15bf0be046fd91df3))
