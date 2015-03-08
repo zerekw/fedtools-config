@@ -1,4 +1,8 @@
 
+__0.0.24 / 2015-03-08__
+
+- Adding support for "localhostalias" ([6953e71](https://github.com/aversini/fedtools-config/commit/6953e71bb94f4ceaeb60cf1a3172fcdc34c04d72))
+
 __0.0.23 / 2015-02-28__
 
 - Automatically list available keys in help ([dffd24e](https://github.com/aversini/fedtools-config/commit/dffd24e5f48f240b9016af3a57d4110d4eceb27d))
