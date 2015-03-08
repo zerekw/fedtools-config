@@ -45,7 +45,8 @@ Config = function () {
       wria2gitfolder: 'wria2gitfolder',
       jspartifactsfolder: 'jspartifactsfolder',
       jsprepofolder: 'jsprepofolder',
-      maxbuilds: 'maxbuilds'
+      maxbuilds: 'maxbuilds',
+      localhostalias: 'localhostalias'
     },
     writable: false
   });
