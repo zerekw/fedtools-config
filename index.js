@@ -202,7 +202,7 @@ Config.prototype.init = function (pkgConfig) {
   if (pkgConfig) {
     this._pkgConfig = pkgConfig;
     json = this._readConfigurationFile();
-    keys = _.omit(pkgConfig, _.union(this._blacklist, _.keys(json)));
+    keys = _.omit(_.extend(pkgConfig, json), _.union(this._blacklist, _.keys(json)));
     this.setKey(keys);
   }
 
